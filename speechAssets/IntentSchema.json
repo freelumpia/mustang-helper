@@ -1,11 +1,15 @@
 {
   "intents": [
     {
-      "intent": "RecipeIntent",
+      "intent": "CheckPASSIntent",
       "slots": [
         {
-          "name" : "Item",
-          "type": "LIST_OF_ITEMS"
+          "name": "Department",
+          "type": "DEPARTMENT"
+        },
+        {
+          "name": "Course",
+          "type": "COURSE"
         }
       ]
     },

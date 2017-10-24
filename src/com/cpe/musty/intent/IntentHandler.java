@@ -5,6 +5,6 @@ import com.amazon.speech.speechlet.SpeechletResponse;
 
 public interface IntentHandler {
 
-	SpeechletResponse handle(Intent intent);
+    SpeechletResponse handle(Intent intent);
 
 }

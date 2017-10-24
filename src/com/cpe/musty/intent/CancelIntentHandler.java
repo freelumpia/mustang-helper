@@ -6,12 +6,12 @@ import com.amazon.speech.ui.PlainTextOutputSpeech;
 
 public class CancelIntentHandler implements IntentHandler {
 
-	@Override
-	public SpeechletResponse handle(Intent intent) {
-		PlainTextOutputSpeech outputSpeech = new PlainTextOutputSpeech();
+    @Override
+    public SpeechletResponse handle(Intent intent) {
+        PlainTextOutputSpeech outputSpeech = new PlainTextOutputSpeech();
         outputSpeech.setText("Goodbye");
 
         return SpeechletResponse.newTellResponse(outputSpeech);
-	}
+    }
 
 }
