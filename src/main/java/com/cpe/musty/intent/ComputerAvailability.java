@@ -5,6 +5,7 @@ import com.amazon.speech.slu.Slot;
 import com.amazon.speech.speechlet.SpeechletResponse;
 import com.amazon.speech.ui.PlainTextOutputSpeech;
 import com.cpe.musty.intent.helper.AskResponseWrapper;
+import com.cpe.musty.intent.JsonReader;
 
 public class ComputerAvailability implements IntentHandler {
   
@@ -15,10 +16,12 @@ public class ComputerAvailability implements IntentHandler {
     Slot fl_number = intent.getSlot(FL_SLOT);
 
     //http://lib.calpoly.edu/api/availability/1st
-    String output = "You got here";
-                String reprompt = "What else can I do?";
+    //String output = "You got here";
+    //String reprompt = "What else can I do?";
 
-                            return AskResponseWrapper.newAskResponse(output, reprompt);
+    
+
+    //return AskResponseWrapper.newAskResponse(output, reprompt);
     
   
 
