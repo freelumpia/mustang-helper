@@ -36,8 +36,8 @@ public class MustangHelperSpeechlet implements Speechlet {
      */
     // @formatter:off
     private static final Map<String, IntentHandler> INTENT_HANDLERS = ImmutableMap.of(
-            "ComputerAvailability", new ComputerAvailability(),
             "CheckPASSIntent", new CheckPASSIntentHandler(),
+            "ComputerAvailability", new ComputerAvailability(),
             "AMAZON.HelpIntent", HelpIntentHandler.getInstance(),
             "AMAZON.StopIntent", new StopIntentHandler(),
             "AMAZON.CancelIntent", new CancelIntentHandler());

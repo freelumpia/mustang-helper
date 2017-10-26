@@ -12,7 +12,7 @@ public class ComputerAvailability implements IntentHandler {
 
   @Override
   public SpeechletResponse handle(Intent intent) {
-    int fl_number = intent.getSlot.getValue(FL_SLOT);
+    Slot fl_number = intent.getSlot(FL_SLOT);
 
     //http://lib.calpoly.edu/api/availability/1st
     String output = "You got here";
