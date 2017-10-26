@@ -16,10 +16,11 @@ import com.amazon.speech.speechlet.SpeechletException;
 import com.amazon.speech.speechlet.SpeechletResponse;
 import com.cpe.musty.intent.CancelIntentHandler;
 import com.cpe.musty.intent.CheckPASSIntentHandler;
-import com.cpe.musty.intent.ComputerAvailability;
 import com.cpe.musty.intent.HelpIntentHandler;
 import com.cpe.musty.intent.IntentHandler;
 import com.cpe.musty.intent.StopIntentHandler;
+import com.cpe.musty.intent.availability.ComputerAvailabilityIntentHandler;
+import com.cpe.musty.intent.availability.FloorChecker;
 import com.cpe.musty.intent.helper.AskResponseWrapper;
 import com.google.common.collect.ImmutableMap;
 
@@ -38,7 +39,7 @@ public class MustangHelperSpeechlet implements Speechlet {
     // @formatter:off
     private static final Map<String, IntentHandler> INTENT_HANDLERS = ImmutableMap.of(
             "CheckPASSIntent", new CheckPASSIntentHandler(),
-            "ComputerAvailability", new ComputerAvailability(),
+            "ComputerAvailability", new ComputerAvailabilityIntentHandler(new FloorChecker()),
             "AMAZON.HelpIntent", HelpIntentHandler.getInstance(),
             "AMAZON.StopIntent", new StopIntentHandler(),
             "AMAZON.CancelIntent", new CancelIntentHandler());
@@ -74,7 +75,11 @@ public class MustangHelperSpeechlet implements Speechlet {
         String intentName = (intent != null) ? intent.getName() : null;
 
         if (INTENT_HANDLERS.containsKey(intentName)) {
-            return INTENT_HANDLERS.get(intentName).handle(intent);
+            try {
+                return INTENT_HANDLERS.get(intentName).handle(intent);
+            } catch (Exception e) {
+                throw new SpeechletException(e);
+            }
         }
 
         throw new SpeechletException("Invalid Intent");
