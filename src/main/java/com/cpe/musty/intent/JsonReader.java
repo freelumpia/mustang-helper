@@ -14,10 +14,14 @@ public class JsonReader {
 
     private static String readAll(Reader rd) throws IOException {
           StringBuilder sb = new StringBuilder();
+          try {
               int cp;
                   while ((cp = rd.read()) != -1) {
                           sb.append((char) cp);
                               }
+          }catch(IOException e) {
+
+          }
                       return sb.toString();
                         }
 
@@ -28,7 +32,10 @@ public class JsonReader {
                               String jsonText = readAll(rd);
                                     JSONObject json = new JSONObject(jsonText);
                                           return json;
-                                              } finally {
+                                              }
+                catch (IOException e) {
+                }
+                finally {
                                                       is.close();
                                                           }
                   }

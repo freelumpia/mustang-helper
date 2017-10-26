@@ -6,7 +6,9 @@ import com.amazon.speech.speechlet.SpeechletResponse;
 import com.amazon.speech.ui.PlainTextOutputSpeech;
 import com.cpe.musty.intent.helper.AskResponseWrapper;
 import com.cpe.musty.intent.JsonReader;
-
+import org.json.JSONException;
+import java.io.IOException;
+import org.json.JSONObject;
 public class ComputerAvailability implements IntentHandler {
   
   private static final String FL_SLOT = "fl_number";
@@ -16,7 +18,7 @@ public class ComputerAvailability implements IntentHandler {
     Slot fl_number = intent.getSlot(FL_SLOT);
 
     //http://lib.calpoly.edu/api/availability/1st
-    JSONObject json = readJsonFromUrl("https://graph.facebook.com/19292868552");
+    getJson();
     String output = "You got here";
     String reprompt = "What else can I do?";
 
@@ -28,6 +30,11 @@ public class ComputerAvailability implements IntentHandler {
 
   }
 
+  private static void getJson()  {
+
+    JsonReader rd = new JsonReader();
+    JSONObject json = rd.readJsonFromUrl("https://graph.facebook.com/19292868552");
+  }
 
 
 }
