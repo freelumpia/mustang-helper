@@ -16,12 +16,13 @@ public class ComputerAvailability implements IntentHandler {
     Slot fl_number = intent.getSlot(FL_SLOT);
 
     //http://lib.calpoly.edu/api/availability/1st
-    //String output = "You got here";
-    //String reprompt = "What else can I do?";
+    JSONObject json = readJsonFromUrl("https://graph.facebook.com/19292868552");
+    String output = "You got here";
+    String reprompt = "What else can I do?";
 
     
 
-    //return AskResponseWrapper.newAskResponse(output, reprompt);
+    return AskResponseWrapper.newAskResponse(output, reprompt);
     
   
 
