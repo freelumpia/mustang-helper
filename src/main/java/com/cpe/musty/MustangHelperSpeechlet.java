@@ -16,6 +16,7 @@ import com.amazon.speech.speechlet.SpeechletException;
 import com.amazon.speech.speechlet.SpeechletResponse;
 import com.cpe.musty.intent.CancelIntentHandler;
 import com.cpe.musty.intent.CheckPASSIntentHandler;
+import com.cpe.musty.intent.ComputerAvailability;
 import com.cpe.musty.intent.HelpIntentHandler;
 import com.cpe.musty.intent.IntentHandler;
 import com.cpe.musty.intent.StopIntentHandler;
